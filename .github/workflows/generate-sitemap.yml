@@ -3,18 +3,18 @@ name: Generate Sitemap
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:  # Botão manual
+  workflow_dispatch:
 
 jobs:
   generate-sitemap:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Permite push
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Para histórico completo
 
       - name: Generate Sitemap
-        uses: cicirello/generate-sitemap@2.0.0
+        uses: cicirello/generate-sitemap@v1  # VERSÃO CORRETA
         with:
           base-url: https://omelhordeviajar.com.br
           path-to-root: .
@@ -27,4 +27,4 @@ jobs:
           git config user.email "action@github.com"
           git add sitemap.xml
           git commit -m "Atualiza sitemap.xml (auto)" || echo "Nada para commit"
-          git push https://${{ secrets.PAT }}@github.com/${{ github.repository }}.git HEAD:main
+          git push
