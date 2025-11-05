@@ -16,16 +16,16 @@ jobs:
       - name: Generate Sitemap
         uses: cicirello/generate-sitemap@v1
         with:
-          base-url-path: https://omelhordeviajar.com.br/  # CORRIGIDO: domínio real + hífen
-          path-to-root: .  # Raiz do repo
+          base-url-path: https://omelhordeviajar.com.br/
+          path-to-root: docs/ 
           sitemap-format: xml
           include-html: true
-          include-pdf: false  # Ou true se tiver PDFs
+          include-pdf: false
 
       - name: Commit & Push Sitemap
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
-          git add sitemap.xml
-          git commit -m "Atualiza sitemap.xml (auto)" || echo "Nada para commit"
+          git add docs/sitemap.xml
+          git commit -m "Atualiza docs/sitemap.xml (auto)" || echo "Nada para commit"
           git push

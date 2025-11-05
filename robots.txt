@@ -1,8 +1,0 @@
-
-User-agent: *
-Disallow: /site
-User-agent: Bingbot
-User-agent: Googlebot
-User-agent: Slurp
-Disallow:
-Sitemap: https://www.omelhordeviajar.com.br/site/sitemap.xml
